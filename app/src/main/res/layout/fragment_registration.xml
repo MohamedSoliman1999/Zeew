@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".vvm.Destination.RegistrationFragment">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="start">
+            <ImageButton
+                android:id="@+id/registrationFragment_back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:background="@null"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"/>
+            <TextView
+                android:id="@+id/loginFragment_signInTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Join Us"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_30ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loginFragment_CompanyTV"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginLeft="@dimen/_12sdp"/>
+            <androidx.cardview.widget.CardView
+            android:id="@+id/loginFragment_CardContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@+id/loginFragment_signInTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_15sdp">
+                <!-- First name Input Field-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/f_registration_til_first_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:hint="First Name"
+                    app:hintTextColor="#7DD11E"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/f_registration_tiet_first_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:background="@null"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <!-- Last name Input Field-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/f_registration_til_last_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:hint="Last Name"
+                    app:hintTextColor="#7DD11E"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/f_registration_tiet_last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:background="@null"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <!-- Email Input Field-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/f_registration_til_email_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:hint="@string/hint_email"
+                    app:hintTextColor="#7DD11E"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/f_registration_tiet_email_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:background="@null"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_20sdp">
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:src="@drawable/ic_egypt"
+                        android:layout_marginRight="@dimen/_5sdp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+20"
+                        android:textSize="@dimen/_16ssp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_5sdp" />
+                    <!-- Email Input Field-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/f_registration_til_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Phone number"
+                        app:hintTextColor="#7DD11E"
+                        >
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/f_registration_tiet_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:inputType="phone"
+                            android:maxLines="1"
+                            android:background="@null"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                <!-- Password Input Field-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/f_registration_til_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_password"
+                    app:layout_constraintTop_toBottomOf="@id/f_registration_til_email_address"
+                    app:passwordToggleEnabled="true"
+                    app:hintTextColor="#7DD11E"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/f_registration_tiet_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:background="@null"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <!-- Confirm password Field-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/f_registration_til_password_confirmation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:hint="Confirm password"
+                    app:hintTextColor="#7DD11E"
+                    app:passwordToggleEnabled="true"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/f_registration_tiet_password_confirmation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:background="@null"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <!-- Referral code Field-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/f_registration_til_referral_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:hint="Referral code"
+                    app:hintTextColor="#7DD11E"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/f_registration_tiet_referral_codes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:background="@null"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/registrationFragment_JoinUs_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_7sdp"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                app:cornerRadius="@dimen/_25sdp"
+                app:strokeColor="#73B3FB"
+                app:strokeWidth="@dimen/_1sdp"
+                app:elevation="@null"
+                android:elegantTextHeight="false"
+                android:elevation="0dp"
+                android:background="@drawable/rgistration_green_border_btn_background"
+                app:backgroundTint="@null"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Join Us"
+                android:textStyle="normal"
+
+                android:textColor="#3E4752"
+                android:textSize="@dimen/_15ssp"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+    </ScrollView>
+</layout>
