@@ -10,7 +10,7 @@ import androidx.navigation.Navigation
 import com.example.zeew.MainActivity
 import com.example.zeew.R
 import com.example.zeew.ZeewApp
-import com.example.zeew.vvm.OnActivityResultCallBack
+import com.example.zeew.vvm.observer.OnActivityResultCallBack
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions

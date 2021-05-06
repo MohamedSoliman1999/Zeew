@@ -1,4 +1,4 @@
-package com.example.zeew.vvm
+package com.example.zeew.vvm.observer
 
 import android.content.Intent
 
