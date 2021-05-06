@@ -9,6 +9,10 @@ import com.example.zeew.model.Forms.LoginForm
 import com.example.zeew.model.Forms.RegistrationForm
 import com.example.zeew.model.UserData2
 import com.google.gson.JsonObject
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import io.reactivex.Observable
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -19,7 +23,10 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-
+import javax.inject.Inject
+import javax.inject.Singleton
+@Module
+@InstallIn(ApplicationComponent::class)
 class Client() {
     private lateinit var SERVICES: ZeewServices
     init {
@@ -62,6 +69,8 @@ class Client() {
             })
            return httpClient.build()
         }
+        @Singleton
+        @Provides
         fun getINSTANCE(): Client {
             if (INSTANCE == null) {
                 INSTANCE = Client()

@@ -1,10 +1,14 @@
 package com.example.zeew.vvm.vm
 
+import android.app.Application
 import android.util.Log
 import android.widget.Toast
+import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.zeew.Network.Client
+import com.example.zeew.Repository.AuthRepository
 import com.example.zeew.ZeewApp
 import com.example.zeew.model.Forms.LoginForm
 import com.example.zeew.model.Forms.RegistrationForm
@@ -14,12 +18,16 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class LoginVM:ViewModel() {
+class LoginVM @ViewModelInject constructor(
+        var repository: AuthRepository,
+        app: Application
+) :
+        AndroidViewModel(app)  {
     var retrievalData: MutableLiveData<JsonObject> = MutableLiveData<JsonObject>()
     var compositeDisposable: CompositeDisposable?=null
     fun userLogIn(email: String, password: String,token:String){
         val logInForm = LoginForm(username = email,password =  password,device_id = token)
-        val observable: Observable<JsonObject> = Client.getINSTANCE().signIn(logInForm)
+        val observable: Observable<JsonObject> = repository.getApiClient().signIn(logInForm)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
         compositeDisposable = CompositeDisposable()

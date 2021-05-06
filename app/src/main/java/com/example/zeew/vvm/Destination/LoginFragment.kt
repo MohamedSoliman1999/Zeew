@@ -2,6 +2,7 @@ package com.example.zeew.vvm.Destination
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,12 +18,14 @@ import com.example.zeew.databinding.FragmentLoginBinding
 import com.example.zeew.model.Forms.LoginForm
 import com.example.zeew.vvm.vm.LoginVM
 import com.example.zeew.vvm.vm.RegistrationVM
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
     var _binding: FragmentLoginBinding?=null
     val binding get() = _binding!!
     var vm: LoginVM?=null
-    var firebaseGoogleAuth:ZeewFireBaseAuth?=null
+//    var firebaseGoogleAuth:ZeewFireBaseAuth?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -40,6 +43,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         vm= ViewModelProviders.of(this).get(LoginVM::class.java)
+        vm!!.repository.getFireBaseInstance().setCurrentFragment(requireActivity())
         userHandler()
     }
 
@@ -76,18 +80,18 @@ class LoginFragment : Fragment() {
         }
     }
     fun googleAuth(){
-        firebaseGoogleAuth= ZeewFireBaseAuth(this)
-        firebaseGoogleAuth!!.signInGoogleForClick()
+        vm!!.repository.getFireBaseInstance().signInGoogleForClick()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        firebaseGoogleAuth!!.onActivityResult(requestCode,resultCode,data)
+        Log.e("ActivityResult","Done Fragment")
+        vm!!.repository.getFireBaseInstance()!!.onActivityResult(requestCode,resultCode,data)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding=null
-        firebaseGoogleAuth=null
+//        firebaseGoogleAuth=null
     }
 }

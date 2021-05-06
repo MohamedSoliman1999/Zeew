@@ -15,8 +15,9 @@ import com.example.zeew.Utils.Const.Companion.USER_TOKEN_KEY
 import com.example.zeew.Utils.PreferenceManager
 import com.example.zeew.databinding.FragmentRegistrationBinding
 import com.example.zeew.vvm.vm.RegistrationVM
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class RegistrationFragment : Fragment() {
     var _binding:FragmentRegistrationBinding?=null
     val binding get() = _binding!!
@@ -25,7 +26,6 @@ class RegistrationFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         preferenceManager= PreferenceManager(requireContext())
-
     }
 
     override fun onCreateView(
@@ -40,6 +40,7 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         vm= ViewModelProviders.of(this).get(RegistrationVM::class.java)
+//        vm!!.repository.getFireBaseInstance().setCurrentFragment(requireActivity())
         userHandler()
     }
 

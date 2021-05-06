@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.example.zeew.MainActivity
 import com.example.zeew.R
 import com.example.zeew.ZeewApp
 import com.example.zeew.vvm.OnActivityResultCallBack
@@ -18,16 +19,24 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import javax.inject.Inject
 
 class ZeewFireBaseAuth: OnActivityResultCallBack {
-    private var fragment: Fragment
-//    lateinit var activity: Activity
+    private lateinit var fragment: Fragment
+    lateinit var activity: Activity
     private lateinit var googleSignInClient: GoogleSignInClient
     lateinit var firebaseAuth: FirebaseAuth
     private lateinit var fbUser: FirebaseUser
     private val RC_SIGN_IN = 123
+    @Inject
+    constructor()
     constructor(f: Fragment) {
-        fragment=f
+//        fragment=f
+//        authenticationRequest()
+    }
+    fun setCurrentFragment(a:Activity){
+        activity=a
+        this.fragment =(activity as MainActivity).getCurrentFragment()
         authenticationRequest()
     }
     //google auth
@@ -36,7 +45,7 @@ class ZeewFireBaseAuth: OnActivityResultCallBack {
         firebaseAuth= FirebaseAuth.getInstance()
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(fragment!!.getString(R.string.default_web_client_id))
+            .requestIdToken(activity.getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
         // [END config_signin]
@@ -57,7 +66,7 @@ class ZeewFireBaseAuth: OnActivityResultCallBack {
         // [END_EXCLUDE]
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         firebaseAuth.signInWithCredential(credential)
-            .addOnCompleteListener(fragment.requireActivity()!!) { task ->
+            .addOnCompleteListener(activity) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(ContentValues.TAG, "signInWithCredential:success")
@@ -83,6 +92,7 @@ class ZeewFireBaseAuth: OnActivityResultCallBack {
             }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        Log.e("ActivityResult","Done")
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
