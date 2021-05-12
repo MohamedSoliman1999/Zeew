@@ -25,7 +25,9 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -38,6 +40,9 @@ android {
     }
     buildFeatures {
         dataBinding= true
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 }
 
@@ -118,7 +123,23 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
+    // Preferences DataStore
+    implementation "androidx.datastore:datastore-preferences:1.0.0-beta01"
+
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
+
+    // Coroutine Lifecycle Scopes
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    /**
+     * the testImplementation is used for normal code like retrofit, and generate in file-->java-->test
+     * the android test androidTestImplementation is used for test with android component like activity|| context|| etc wich run on GPU and generated in file-->java-->androidTest
+     * */
+    testImplementation "com.google.truth:truth:1.0.1"
+    androidTestImplementation "com.google.truth:truth:1.0.1"
 }

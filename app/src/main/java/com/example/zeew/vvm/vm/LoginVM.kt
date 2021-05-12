@@ -6,12 +6,9 @@ import android.widget.Toast
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.zeew.Network.Client
 import com.example.zeew.Repository.AuthRepository
 import com.example.zeew.ZeewApp
 import com.example.zeew.model.Forms.LoginForm
-import com.example.zeew.model.Forms.RegistrationForm
 import com.google.gson.JsonObject
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -34,6 +31,7 @@ class LoginVM @ViewModelInject constructor(
         compositeDisposable!!.add(observable.subscribe({
             Log.e("LoginVM", "Done")
             retrievalData.setValue(it)
+
         }, {
             Log.e("LoginVM", it.message.toString())
             Toast.makeText(ZeewApp.getINSTANCE().applicationContext, it.localizedMessage.toString(), Toast.LENGTH_SHORT).show()

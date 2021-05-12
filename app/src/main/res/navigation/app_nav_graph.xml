@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/authSuccessFragment"
-        android:name="com.example.zeew.AuthSuccessFragment"
+        android:name="com.example.zeew.vvm.Destination.AuthSuccessFragment"
         android:label="fragment_auth_success"
         tools:layout="@layout/fragment_auth_success" />
 </navigation>

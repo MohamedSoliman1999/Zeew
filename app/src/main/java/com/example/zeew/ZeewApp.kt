@@ -20,4 +20,5 @@ class ZeewApp : Application() {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         INSTANCE = this
     }
+
 }

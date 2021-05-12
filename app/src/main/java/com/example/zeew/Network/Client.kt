@@ -1,13 +1,11 @@
 package com.example.zeew.Network
 
-import android.service.autofill.UserData
 import com.example.zeew.Network.Constants.Companion.BASE_URL
 import com.example.zeew.Network.Constants.Companion.CONNECT_TIMEOUT
 import com.example.zeew.Network.Constants.Companion.REQUEST_TIMEOUT
 import com.example.zeew.Network.Constants.Companion.WRITE_TIMEOUT
 import com.example.zeew.model.Forms.LoginForm
 import com.example.zeew.model.Forms.RegistrationForm
-import com.example.zeew.model.UserData2
 import com.google.gson.JsonObject
 import dagger.Module
 import dagger.Provides
@@ -23,7 +21,6 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import javax.inject.Inject
 import javax.inject.Singleton
 @Module
 @InstallIn(ApplicationComponent::class)

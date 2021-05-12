@@ -3,7 +3,6 @@ package com.example.zeew.Network
 import android.service.autofill.UserData
 import com.example.zeew.model.Forms.LoginForm
 import com.example.zeew.model.Forms.RegistrationForm
-import com.example.zeew.model.UserData2
 import com.google.gson.JsonObject
 import io.reactivex.Observable
 import retrofit2.Call

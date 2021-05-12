@@ -24,8 +24,7 @@ class RegistrationVM @ViewModelInject constructor(
         AndroidViewModel(app) {
     var retrievalData: MutableLiveData<JsonObject> = MutableLiveData<JsonObject>()
     var compositeDisposable: CompositeDisposable?=null
-    fun userSignUp(firstName: String, lastName: String, email: String, phoneNumber: String, password: String, referralCode: String){
-        val signUpForm = RegistrationForm(action = "CustomerSignUp",first_name = firstName,last_name = lastName, username = email,phone_number = "+2$phoneNumber",password =  password,referral_code = referralCode)
+    fun userSignUp(signUpForm:RegistrationForm){
         val observable: Observable<JsonObject> = repository.getApiClient().signUp(signUpForm)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
